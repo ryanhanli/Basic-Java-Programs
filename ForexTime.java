@@ -1,4 +1,6 @@
 import java.time.format.DateTimeFormatter;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 
 public class ForexTime {
@@ -19,25 +21,40 @@ public class ForexTime {
 //		System.out.println(date);  
 		
 		String s = dateTime.format(currentDateTime);
-		int k= Integer.parseInt(s.substring(0,2));
+		double k= Integer.parseInt(s.substring(0,2));
+		double i= (Integer.parseInt(s.substring(3,5)))/(double) 60;
+		i=round(i,2);
+		k = k+i;
+//		System.out.println(k);
 		
 		if(k>=3 && k<=11) {
 			London = true;
-			System.out.println("You are currently in the English Session");
+			System.out.println("You are currently in the English Session(GBP).");
 		}
 		if((k>=8 && k<=16)) {
 			NewYork = true;
-			System.out.println("You are currently in the American Session");
+			System.out.println("You are currently in the American Session(USD).");
 		}
-		if((k>=18 || k>=2)) {
+		if((k>=18 || k<=2)) {
 			Sydney = true;
-			System.out.println("You are currently in the Australian Session");
+			System.out.println("You are currently in the Australian Session(AUD).");
 		}
-		if((k>=19 || k>=3)) {
+		if((k>=19 || k<=3)) {
 			Tokyo = true;
-			System.out.println("You are currently in the Asian Session");
+			System.out.println("You are currently in the Asian Session(JPY).");
 		}
-		
+		if(!(London && NewYork && Sydney && Tokyo)) {
+			System.out.println("All sessions are currently closed.");
+		}
+	}
+	
+	public static double round(double value, int decimalPlaces) {
+	    
+		if (decimalPlaces < 0) throw new IllegalArgumentException("Not a valid decimal place value");
+
+	    BigDecimal decimal = new BigDecimal(value);
+	    decimal = decimal.setScale(decimalPlaces, RoundingMode.HALF_UP);
+	    return decimal.doubleValue();
 	}
 
 }
