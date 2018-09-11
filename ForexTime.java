@@ -7,10 +7,10 @@ public class ForexTime {
 
 	public static void main(String[] args) {
 
-		boolean Sydney = false;
-		boolean Tokyo = false;
-		boolean London = false;
-		boolean NewYork= false;
+//		boolean Sydney = false;
+//		boolean Tokyo = false;
+//		boolean London = false;
+//		boolean NewYork= false;
 		
 		DateTimeFormatter dateTime = DateTimeFormatter.ofPattern("HH:mm:ss MM/dd/yyyy");
 		LocalDateTime currentDateTime = LocalDateTime.now();
@@ -23,27 +23,32 @@ public class ForexTime {
 		String s = dateTime.format(currentDateTime);
 		double k= Integer.parseInt(s.substring(0,2));
 		double i= (Integer.parseInt(s.substring(3,5)))/(double) 60;
+		int y = 0;
 		i=round(i,2);
 		k = k+i;
 //		System.out.println(k);
 		
 		if(k>=3 && k<=11) {
-			London = true;
+//			London = true;
 			System.out.println("You are currently in the English Session(GBP).");
+			y++;
 		}
 		if((k>=8 && k<=16)) {
-			NewYork = true;
+//			NewYork = true;
 			System.out.println("You are currently in the American Session(USD).");
+			y++;
 		}
 		if((k>=18 || k<=2)) {
-			Sydney = true;
+//			Sydney = true;
 			System.out.println("You are currently in the Australian Session(AUD).");
+			y++;
 		}
 		if((k>=19 || k<=3)) {
-			Tokyo = true;
+//			Tokyo = true;
 			System.out.println("You are currently in the Asian Session(JPY).");
+			y++;
 		}
-		if(((London && NewYork) && (Sydney && Tokyo))) {
+		if(y==0) {
 			System.out.println("All sessions are currently closed.");
 		}
 	}
