@@ -43,7 +43,7 @@ public class ForexTime {
 			Tokyo = true;
 			System.out.println("You are currently in the Asian Session(JPY).");
 		}
-		if(!(London && NewYork && Sydney && Tokyo)) {
+		if(((London && NewYork) && (Sydney && Tokyo))) {
 			System.out.println("All sessions are currently closed.");
 		}
 	}
