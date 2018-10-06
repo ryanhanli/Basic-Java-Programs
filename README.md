@@ -12,4 +12,4 @@ Program acts as a virtual forex clock helps traders keep track of the different 
 
 3. AutoClicker(MouseBot and MouseBotInvoker)
 
-Mouse bot that left clicks based on the user's input of clicks and delay between clicks.  Utilizes Java's built-in Robot Class.
+Mouse bot that left clicks based on the user's input(desired number of clicks and delay between clicks).  Utilizes Java's built-in Robot Class.
