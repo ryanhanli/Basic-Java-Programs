@@ -1,4 +1,4 @@
-# Basic-Java-Programs
+# Java Table of Contents
 
 Java programs I developed in my free time.  
 What is in this repository so far:
