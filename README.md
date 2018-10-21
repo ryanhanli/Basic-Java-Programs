@@ -21,3 +21,7 @@ Simple and efficient java program that scrapes the entirety of a websites HTML, 
 5. WebCrawler
 
 Recursive web crawling program that will continuously build a list of website based on the initial URL.
+
+6. WebCrawler2
+
+Web crawling program that uses HashSets instead of recursion.
