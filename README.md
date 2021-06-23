@@ -25,3 +25,7 @@ Recursive web crawling program that will continuously build a list of website ba
 6. WebCrawler2
 
 Web crawling program that uses HashSets instead of recursion.
+
+7. MapReduceDump
+
+A ton of random Java files relating to HDFS and MapReduce.
